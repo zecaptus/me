@@ -29,12 +29,6 @@ body > header a:hover {
   color: #333;
 }
 
-@media print {
-  body > header {
-    display: none;
-  }
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -114,7 +108,7 @@ li {
 
 h1,
 h2,
-h3 {
+h3, h4 {
   text-transform: uppercase;
   font-weight: 100;
   color: #1ea56d;
@@ -133,6 +127,12 @@ h2 {
 h3 {
   margin: 20px 0 12px 0;
   border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.nobreak > h4 {
+  font-weight: bold;
+  margin-left: 8px;
+  color:rgba(0, 0, 0, 0.45)
 }
 
 a {
@@ -168,9 +168,10 @@ h4 {
   padding-left: 8px;
 }
 
-.section header {
+.content-group header {
   display: flex;
   align-items: baseline;
+  padding-top: 8px;
 }
 
 .date {
@@ -187,4 +188,41 @@ h4 {
 
 .aboutme > div {
   flex: 1;
+}
+
+
+section {
+  margin-left:8px;
+  padding: 0 8px;
+  margin-bottom: 8px;
+  width: fit-content;
+  block-size: fit-content;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  border-left: 3px solid #1ea56d;
+  padding-left: 8px;
+}
+
+section > div,.section > div {
+  padding-left: 8px;
+  margin-bottom: 8px;
+}
+
+@media print {
+
+
+  body > header {
+    display: none;
+  }
+
+
+
+
+  div.nobreak,
+  section {
+    break-inside: avoid;
+  }
 }
